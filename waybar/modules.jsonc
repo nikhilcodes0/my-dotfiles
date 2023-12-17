@@ -1,0 +1,148 @@
+{
+  // Modules configuration
+  "clock": {
+    "format": "<span color=\"#7aa2f7\">   </span>{:%H:%M:%S}",
+    "format-alt": "<span color=\"#7aa2f7\">  </span>{:%d-%m-%Y}",
+    "interval": 1
+  },
+
+  "cpu": {
+    "format": "<span color=\"#7aa2f7\">  </span>{usage}%",
+    "interval": 2
+  },
+
+  "memory": {
+    "format": "<span color=\"#7aa2f7\">  </span>{used}GiB",
+    "interval": 2
+  },
+
+
+  "pulseaudio": {
+  	// "scroll-step": 1, // %, can be a float
+            "format": "{volume}% {icon} {format_source}",
+            "format-bluetooth": "{volume}%<span color=\"#7aa2f7\"> {icon} {format_source}</span>",
+            "format-bluetooth-muted": "<span color=\"#7aa2f7\">  {icon} {format_source}</span>",
+            "format-muted": "<span color=\"#7aa2f7\"> </span>{format_source}",
+            "format-source": "<span color=\"#7aa2f7\">  {volume}% </span>",
+            "format-source-muted": "<span color=\"#7aa2f7\"> </span>",
+            "format-icons": {
+                "headphone": "<span color=\"#7aa2f7\"> </span>",
+                "hands-free": "<span color=\"#7aa2f7\"> </span>",
+                "headset": "<span color=\"#7aa2f7\"> </span>",
+                "phone": "<span color=\"#7aa2f7\"> </span>",
+                "portable": "<span color=\"#7aa2f7\"> </span>",
+                "car": "",
+                "default": ["<span color=\"#7aa2f7\"></span>", "<span color=\"#7aa2f7\"></span>", "<span color=\"#7aa2f7\"></span>"]
+            },
+            "on-click": "pavucontrol"  
+  },
+
+  "backlight": {
+            // "device": "acpi_video1",
+            "format": "{icon}",
+            "format-icons": ["<span color=\"#7aa2f7\"></span>", "<span color=\"#7aa2f7\"></span>", "<span color=\"#7aa2f7\"></span>", "<span color=\"#7aa2f7\"></span>", "<span color=\"#7aa2f7\"></span>", "<span color=\"#7aa2f7\"></span>", "<span color=\"#7aa2f7\"></span>", "<span color=\"#7aa2f7\"></span>", "<span color=\"#7aa2f7\"></span>"]
+        },
+
+  "hyprland/window": {
+    "max-length": 40
+  },
+
+  "custom/kernel": {
+    "exec": "uname -r | cut -d '-' -f1",
+    "interval": "once",
+    "format": "<span color=\"#7aa2f7\"> </span>{}"
+  },
+
+  "custom/spotify": {
+    "exec": "/usr/bin/python3 ~/.config/waybar/mediaplayer.py --player spotify",
+    "format": "{}   ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+   },
+
+   "temperature": {
+       // "thermal-zone": 2,
+            // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+            "critical-threshold": 80,
+            // "format-critical": "{temperatureC}°C {icon}",
+            "format": "{temperatureC}°C {icon}",
+            "format-icons": ["", "", ""] 
+    },
+
+  "network": {
+    "format": "{essid}",
+    "format-wifi": "<span color=\"#7aa2f7\"> </span> {essid} ",
+    "format-ethernet": "<span color=\"#7aa2f7\">  </span>{ipaddr}",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "<span color=\"#7aa2f7\">  </span>{ifname} via {gwaddri}",
+    "tooltip-format-wifi": "<span color=\"#7aa2f7\">   </span>{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "<span color=\"#7aa2f7\">  </span>{ifname} ({ipaddr}/{cidr})",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+    },
+
+    "battery": {
+        "states": {
+        	 "good": 95,
+           	 "warning": 30,
+            	"critical": 15
+        },
+        "format": "{icon}{capacity}%",
+        "format-charging": "<span color=\"#7aa2f7\">  </span>{capacity}%",
+        "format-plugged": "<span color=\"#7aa2f7\">  </span>{capacity}%",
+        "format-alt": "{icon}{time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+
+    "custom/exit": {
+        "format": "<span color=\"#7aa2f7\">  </span>",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+
+   "custom/notification": {
+	"tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span color=\"#7aa2f7\"></span><span foreground='red'><sup></sup></span>",
+      "none": "<span color=\"#7aa2f7\"></span>",
+      "dnd-notification": "<span color=\"#7aa2f7\"></span><span foreground='red'><sup></sup></span>",
+      "dnd-none": "<span color=\"#7aa2f7\"></span>",
+      "inhibited-notification": "<span color=\"#7aa2f7\"></span><span foreground='red'><sup></sup></span>",
+      "inhibited-none": "<span color=\"#7aa2f7\"></span>",
+      "dnd-inhibited-notification": "<span color=\"#7aa2f7\"></span><span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "<span color=\"#7aa2f7\"></span> "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -cp -sw" 
+   },
+
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  },
+
+  "wlr/workspaces": {
+    "disable-scroll": true,
+    "on-click": "activate"
+  },
+
+  "mpd": {
+    "format": "<span color=\"#7aa2f7\">{stateIcon} </span>{artist} - {title}",
+    "format-paused": "",
+    "state-icons": {
+      "paused": "<span color=\"#7aa2f7\">  </span>",
+      "playing": "<span color=\"#7aa2f7\">  </span>"
+    }
+  }
+}
+
+

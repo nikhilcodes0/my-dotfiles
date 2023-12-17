@@ -1,0 +1,139 @@
+* {
+  font-family: JetBrainsMono Nerd Font, feather;
+  font-weight: 900;
+  font-size: 14px;
+  color: #c0caf5;
+}
+
+/* Set background color of main waybar window */
+window#waybar {
+  background: transparent;
+}
+
+/* Set background color of tooltips */
+tooltip {
+  background: #1e1e2e;
+}
+
+/* Set workspace text color and padding */
+#workspaces button {
+  padding: 0;
+}
+
+
+
+/* Sets active workspace to have a solid line on the bottom */
+#workspaces button.active {
+  border-bottom: 2px solid #7aa2f7;
+  border-radius: 0;
+  /*margin-bottom: 2px;*/
+}
+
+/* More workspace stuff for highlighting on hover */
+#workspaces button.focused {
+  color: #000000;
+}
+
+#workspaces button.urgent {
+  color: #000000;
+}
+
+#workspaces button:hover {
+  background: #7aa2f7;
+  color: #000000;
+}
+
+/* Sets background, padding, margins, and borders for (all) modules */
+.custom-kernel,
+.custom-pacman,
+#workspaces,
+#clock,
+#window,
+#temperature,
+#cpu,
+#memory,
+#pulseaudio,
+#tray,
+#mpd,
+#network,
+#battery,
+.custom-spotify,
+#backlight,
+#temperature,
+#custom-exit,
+#custom-notification{
+  background: rgba(21, 22, 30, 0.7);
+  padding: 0 10px;
+  margin: 5px 0 0 0;
+  border: 0;
+}
+
+#window.empty {
+  background: transparent;
+  padding: 0px 2px;
+}
+
+/* Set up rounding to make these modules look like separate pills */
+#mpd,
+#custom-spotify,
+#clock,
+#window{
+  border-radius: 8px;
+  margin-left: 4px;
+}
+
+#tray {
+  border-radius: 8px;
+  margin-right: 4px;
+}
+
+#window,
+#battery,
+#backlight,
+#pulseaudio,
+#network,
+#custom-exit,
+#custom-notification{
+  border-radius: 8px;
+}
+
+/* Rounding only on left of module */
+#workspaces,
+#cpu{
+  border-radius: 8px 0 0 8px;
+}
+
+/* Rounding only on right of module(s) */
+#custom-pacman,
+#custom-kernel,
+#temperature{
+  border-radius: 0 8px 8px 0;
+}
+
+/*Margin on left-side modules*/
+#workspaces {
+	margin-left: 5px;
+	border-radius: 8px;
+}
+
+/*Margin on right-side modules*/
+#custom-exit,
+#temperature,
+#battery,
+#backlight,
+#pulseaudio,
+#network,
+#custom-notification,
+#window{
+	margin-right: 5px;
+}
+
+.custom-spotify {
+	padding-top: 1px;
+}
+
+#custom-notification {
+	padding-bottom: 5px;
+}
+
+
